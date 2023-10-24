@@ -9,16 +9,20 @@ void tokeniseRecord(const char *input, const char *delimiter,
     
     // Tokenize the copied string
     char *token = strtok(inputCopy, delimiter);
-    if (token != NULL) {        strcpy(date, token);
+    if (token != NULL) 
+    {        
+        strcpy(date, token);
     }
     
     token = strtok(NULL, delimiter);
-    if (token != NULL) {
+    if (token != NULL) 
+    {
         strcpy(time, token);
     }
     
     token = strtok(NULL, delimiter);
-    if (token != NULL) {
+    if (token != NULL) 
+    {
         strcpy(steps, token);
     }
     

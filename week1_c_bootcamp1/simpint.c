@@ -13,9 +13,9 @@ int main()
     printf("Enter the time period (years): \n");
     scanf("%f", &t);
 
-    i = p * r * t;
+    i = (p * r * t)/100;
 
-    printf("The simple interest is %f\n", i);
+    printf("The simple interest is %.2f\n", i);
 
     return 0;
 }

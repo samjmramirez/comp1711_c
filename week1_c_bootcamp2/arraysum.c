@@ -2,17 +2,13 @@
 
 int main()
 {
-    int a [5];
-    int sum;
-    int length = 0;
-    
-    while (str[length] > '0')
-    {
-        length++;
-    }
-    for (int i = 0; int i = length; i++)
-    {
-        sum = a[i] ;
-    }
+    int arr [5] = {1, 2, 3, 4, 5};
+    int sum = 0;
 
+    for (int i = 0; i < 5; i++)
+    {
+        sum += arr[i];
+    }
+    printf("Sum: %d\n", sum);
+    return 0;
 }
