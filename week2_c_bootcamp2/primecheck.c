@@ -2,36 +2,31 @@
 
 int isPrime(int num)
 {
-    if (num % 2 == 0 && num != 2)
+    if (num <= 1)
     {
-        printf("0\n");
+        return 0; // not prime
     }
-    else if (num % 3 == 0 && num != 3)
+    for (int i = 2; i * i <= num; i++)
     {
-        printf("0\n");
+        if (num % i == 0)
+        {
+            return 0; //not prime
+        }
     }
-    else if (num % 5 == 0 && num != 5)
-    {
-        printf("0\n");
-    }
-    else if (num % 7 == 0 && num != 7)
-    {
-        printf("0\n");
-    }
-    else
-    {
-        printf("1\n");
-    }
+    return 1; //prime number
 }
 
 int main()
 {
-    int input;
+    int num;
     printf("Enter an integer: ");
-    scanf("%d", &input);
-
-    int result = isPrime(input);
-
-    printf("[0 = not a prime number/ 1 = is a prime number]\n");
+    scanf("%d", &num);
+    if (isPrime(num)){
+        printf("%d is a prime number.\n", num);
+    }
+    else{
+        printf("%d is not a prime number.\n",num);
+    }
+    return 0;
 }
 

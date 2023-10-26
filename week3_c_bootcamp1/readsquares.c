@@ -10,15 +10,17 @@ int main()
         perror("");
         return 1;
     }
-    int average = 0, buffer_size = 100;
+    int buffer_size = 100;
+    float average, sum = 0, length = 0;
     char line_buffer[buffer_size];
     while (fgets(line_buffer, buffer_size, file) != NULL)
     {
         printf("%d\n", atoi(line_buffer));
-        sum += atoi(line_buffer)
+        sum += atoi(line_buffer);
+        length++;
     }
-    average = sum/buffer_size
-    printf("The average of the numbers in %s is %d", filename, average)
+    average = sum/length;
+    printf("The average of the numbers in %s is %.3f\n", filename, average);
     fclose(file);
     return 0;
 }
