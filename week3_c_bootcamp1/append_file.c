@@ -1,42 +1,26 @@
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 
 int main(){
-    char filename[] = "number.dat";
-    FILE *file = fopen(filename, "a");
-    if (file == NULL)
-    {
-        perror(" ");
+    FILE *file = fopen("numbers.dat", "a+");
+    if (file == NULL){
+        perror("");
         return 1;
     }
 
-    float number, sum = 0, average = 0;
-    int count = 0;
-
-    while(fscanf(file, "%f", &number) == 1){
-        sum += number;
-        count++;
+    int buffer_size = 100;
+    char line_buffer[buffer_size];
+    int counter = 0;
+    float sum = 0;
+    while (fgets(line_buffer, buffer_size, file) != NULL){
+        sum += atof(line_buffer);
+        counter++;
+        if (line_buffer[strlen(line_buffer)-1] != '\n')
+        fprintf(file, "\n");
     }
-
+    fprintf(file, "%f", sum / counter);
     fclose(file);
 
-    if (count > 0){
-        average = sum / count;
-
-        file = fopen(filename, "a");
-
-        if (file == NULL){
-            perror(" ");
-            return 1;
-        }
-
-        fprintf(file, "\n%.6f", average);
-        printf("Average %.6f appended to %s.\n", average, filename);
-
-        fclose(file);
-    }
-    else{
-        printf("No valid numbers found in the file.\n");
-    }
     return 0;
 }
